@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class NosOccasionsController extends AbstractController
 {
-    #[Route('/nosOccasions', name: 'nosOccasions')]
+    #[Route('/nosOccasions', name: 'nosOccasions', methods: ['GET'], schemes:[HTTP])]
     public function index(VoituresOccasionsRepository $voituresOccasionsRepository, HorairesRepository $horairesRepository, Request $request): Response
     {
         $horaires = $horairesRepository->findAll();

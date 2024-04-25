@@ -15,7 +15,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'home')]
+    #[Route('/home', name: 'home', methods: ['GET'], schemes:[HTTP])]
     public function home(Request $request, EntityManagerInterface $entityManager, ServicesRepository $servicesRepository, AvisRepository $avisRepository, HorairesRepository $horairesRepository): Response
     {
         $avis = new Avis();

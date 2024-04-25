@@ -15,37 +15,37 @@ use Symfony\Component\Security\Http\Authentication\UsersAuthenticatorInterface;
 
 class RegistrationController extends AbstractController
 {
-    #[Route('/inscription', name: 'app_register')]
+    #[Route('/inscription', name: 'app_register', methods: ['GET'], schemes:[HTTP])]
     public function register(
         Request $request,
-        UsersPasswordHasherInterface $usersPasswordHasher,
-        UsersAuthenticatorInterface $usersAuthenticator,
-        UsersAuthenticator $authenticator,
+        UserPasswordHasherInterface $userPasswordHasher,
+        UserAuthenticatorInterface $userAuthenticator,
+        UserAuthenticator $authenticator,
         EntityManagerInterface $entityManager
     ): Response {
-        $users = new Users();
-        $form = $this->createForm(RegistrationFormType::class, $users);
+        $user = new User();
+        $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
-            $users->setPassword(
-                $usersPasswordHasher->hashPassword(
-                    $users,
+            $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $user,
                     $form->get('plainPassword')->getData()
                 ) // Removed extra semicolon here.
             );
 
-            $users->setRoles(
+            $user->setRoles(
                 $form->get('roles')->getData()
             );
 
-            $entityManager->persist($users);
+            $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email
 
-            return $usersAuthenticator->authenticateUsers(
-                $users,
+            return $userAuthenticator->authenticateUsers(
+                $user,
                 $authenticator,
                 $request
             );

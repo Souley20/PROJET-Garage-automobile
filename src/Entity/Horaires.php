@@ -29,8 +29,8 @@ class Horaires
     #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $horairesFermeturesSoir = null;
 
-    #[ORM\ManyToOne(inversedBy: 'usersHoraires')]
-    private ?Users $usersHoraires = null;
+    #[ORM\ManyToOne(inversedBy: 'userHoraires')]
+    private ?User $userHoraires = null;
 
     public function getId(): ?int
     {
@@ -97,14 +97,14 @@ class Horaires
         return $this;
     }
 
-    public function getUsersHoraires(): ?Users
+    public function getUserHoraires(): ?User
     {
-        return $this->usersHoraires;
+        return $this->userHoraires;
     }
 
-    public function setUserHoraires(?Users $usersHoraires): static
+    public function setUserHoraires(?User $userHoraires): static
     {
-        $this->usersHoraires = $usersHoraires;
+        $this->userHoraires = $userHoraires;
 
         return $this;
     }

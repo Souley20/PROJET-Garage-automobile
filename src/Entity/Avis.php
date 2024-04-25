@@ -42,8 +42,8 @@ class Avis
     #[ORM\Column(options: ["default" => false])]
     private ?bool $valide;
 
-    #[ORM\ManyToOne(inversedBy: 'usersAvis')]
-    private ?Users $usersAvis = null;
+    #[ORM\ManyToOne(inversedBy: 'userAvis')]
+    private ?User $userAvis = null;
 
     public function __construct()
     {
@@ -118,12 +118,12 @@ class Avis
 
     public function getUserAvis(): ?Users
     {
-        return $this->usersAvis;
+        return $this->userAvis;
     }
 
-    public function setUserAvis(?Users $usersAvis): static
+    public function setUserAvis(?User $userAvis): static
     {
-        $this->usersAvis = $usersAvis;
+        $this->userAvis = $userAvis;
 
         return $this;
     }

@@ -23,8 +23,8 @@ class Annonces
     #[ORM\JoinColumn(nullable: false)]
     private ?VoituresOccasions $annoncesVoituresOccasions = null;
 
-    #[ORM\ManyToOne(inversedBy: 'usersAnnonces')]
-    private ?Users $usersAnnonces = null;
+    #[ORM\ManyToOne(inversedBy: 'userAnnonces')]
+    private ?User $userAnnonces = null;
 
     public function getId(): ?int
     {
@@ -67,14 +67,14 @@ class Annonces
         return $this;
     }
 
-    public function getUsersAnnonces(): ?Users
+    public function getUsersAnnonces(): ?User
     {
-        return $this->usersAnnonces;
+        return $this->userAnnonces;
     }
 
-    public function setUsersAnnonces(?Users $usersAnnonces): static
+    public function setUserAnnonces(?Users $userAnnonces): static
     {
-        $this->usersAnnonces = $usersAnnonces;
+        $this->userAnnonces = $userAnnonces;
 
         return $this;
     }

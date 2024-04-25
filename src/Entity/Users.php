@@ -2,17 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\UsersRepository;
+use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\Users\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\Users\UsersInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-#[ORM\Entity(repositoryClass: UsersRepository::class)]
+#[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
-class Users implements UsersInterface, PasswordAuthenticatedUsersInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -38,31 +38,31 @@ class Users implements UsersInterface, PasswordAuthenticatedUsersInterface
     private ?string $password = null;
 
     #[ORM\OneToMany(mappedBy: 'userAvis', targetEntity: Avis::class)]
-    private Collection $usersAvis;
+    private Collection $userAvis;
 
-    #[ORM\OneToMany(mappedBy: 'usersServices', targetEntity: Services::class)]
-    private Collection $usersServices;
+    #[ORM\OneToMany(mappedBy: 'userServices', targetEntity: Services::class)]
+    private Collection $userServices;
 
-    #[ORM\OneToMany(mappedBy: 'UsersFormulaire', targetEntity: FormulaireDeRenseignement::class)]
-    private Collection $UsersFormulaire;
+    #[ORM\OneToMany(mappedBy: 'UserFormulaire', targetEntity: FormulaireDeRenseignement::class)]
+    private Collection $UserFormulaire;
 
-    #[ORM\OneToMany(mappedBy: 'usersRoles', targetEntity: Roles::class)]
-    private Collection $usersRoles;
+    #[ORM\OneToMany(mappedBy: 'userRoles', targetEntity: Roles::class)]
+    private Collection $userRoles;
 
-    #[ORM\OneToMany(mappedBy: 'usersHoraires', targetEntity: Horaires::class)]
-    private Collection $usersHoraires;
+    #[ORM\OneToMany(mappedBy: 'userHoraires', targetEntity: Horaires::class)]
+    private Collection $userHoraires;
 
-    #[ORM\OneToMany(mappedBy: 'usersAnnonces', targetEntity: Annonces::class)]
-    private Collection $usersAnnonces;
+    #[ORM\OneToMany(mappedBy: 'userAnnonces', targetEntity: Annonces::class)]
+    private Collection $userAnnonces;
 
     public function __construct()
     {
-        $this->usersAvis = new ArrayCollection();
-        $this->usersServices = new ArrayCollection();
-        $this->UsersFormulaire = new ArrayCollection();
-        $this->usersRoles = new ArrayCollection();
-        $this->usersHoraires = new ArrayCollection();
-        $this->usersAnnonces = new ArrayCollection();
+        $this->userAvis = new ArrayCollection();
+        $this->userServices = new ArrayCollection();
+        $this->UserFormulaire = new ArrayCollection();
+        $this->userRoles = new ArrayCollection();
+        $this->userHoraires = new ArrayCollection();
+        $this->userAnnonces = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -107,9 +107,9 @@ class Users implements UsersInterface, PasswordAuthenticatedUsersInterface
     }
 
     /**
-     * A visual identifier that represents this users.
+     * A visual identifier that represents this user.
      *
-     * @see UsersInterface
+     * @see UserInterface
      */
     public function getUsersIdentifier(): string
     {
@@ -117,13 +117,13 @@ class Users implements UsersInterface, PasswordAuthenticatedUsersInterface
     }
 
     /**
-     * @see UsersInterface
+     * @see UserInterface
      */
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every users at least has ROLE_USERS
-        $roles[] = 'ROLE_USERS';
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
@@ -155,34 +155,34 @@ class Users implements UsersInterface, PasswordAuthenticatedUsersInterface
      */
     public function eraseCredentials(): void
     {
-        // If you store any temporary, sensitive data on the users, clear it here
+        // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
 
     /**
      * @return Collection<int, Avis>
      */
-    public function getUsersAvis(): Collection
+    public function getUserAvis(): Collection
     {
-        return $this->usersAvis;
+        return $this->userAvis;
     }
 
-    public function addUsersAvi(Avis $usersAvi): static
+    public function addUserAvi(Avis $userAvi): static
     {
-        if (!$this->usersAvis->contains($usersAvi)) {
-            $this->usersAvis->add($usersAvi);
-            $usersAvi->setUsersAvis($this);
+        if (!$this->userAvis->contains($userAvi)) {
+            $this->userAvis->add($userAvi);
+            $userAvi->setUserAvis($this);
         }
 
         return $this;
     }
 
-    public function removeUserAvi(Avis $usersAvi): static
+    public function removeUserAvi(Avis $userAvi): static
     {
-        if ($this->usersAvis->removeElement($usersAvi)) {
+        if ($this->userAvis->removeElement($userAvi)) {
             // set the owning side to null (unless already changed)
-            if ($usersAvi->getUsersAvis() === $this) {
-                $usersAvi->setUsersAvis(null);
+            if ($userAvi->getUserAvis() === $this) {
+                $userAvi->setUserAvis(null);
             }
         }
 
@@ -192,27 +192,27 @@ class Users implements UsersInterface, PasswordAuthenticatedUsersInterface
     /**
      * @return Collection<int, Services>
      */
-    public function getUsersServices(): Collection
+    public function getUserServices(): Collection
     {
-        return $this->usersServices;
+        return $this->userServices;
     }
 
-    public function addUsersService(Services $usersService): static
+    public function addUserService(Services $userService): static
     {
-        if (!$this->usersServices->contains($usersService)) {
-            $this->usersServices->add($usersService);
-            $usersService->setUsersServices($this);
+        if (!$this->userServices->contains($userService)) {
+            $this->userServices->add($userService);
+            $userService->setUserServices($this);
         }
 
         return $this;
     }
 
-    public function removeUsersService(Services $usersService): static
+    public function removeUserService(Services $userService): static
     {
-        if ($this->usersServices->removeElement($usersService)) {
+        if ($this->userServices->removeElement($userService)) {
             // set the owning side to null (unless already changed)
-            if ($usersService->getUsersServices() === $this) {
-                $usersService->setUsersServices(null);
+            if ($userService->getUserServices() === $this) {
+                $userService->setUserServices(null);
             }
         }
 
@@ -222,27 +222,27 @@ class Users implements UsersInterface, PasswordAuthenticatedUsersInterface
     /**
      * @return Collection<int, FormulaireDeRenseignement>
      */
-    public function getUsersFormulaire(): Collection
+    public function getUserFormulaire(): Collection
     {
-        return $this->UsersFormulaire;
+        return $this->UserFormulaire;
     }
 
-    public function addUsersFormulaire(FormulaireDeRenseignement $usersFormulaire): static
+    public function addUserFormulaire(FormulaireDeRenseignement $userFormulaire): static
     {
-        if (!$this->UsersFormulaire->contains($usersFormulaire)) {
-            $this->UsersFormulaire->add($usersFormulaire);
-            $usersFormulaire->setUsersFormulaire($this);
+        if (!$this->UserFormulaire->contains($userFormulaire)) {
+            $this->UserFormulaire->add($userFormulaire);
+            $userFormulaire->setUserFormulaire($this);
         }
 
         return $this;
     }
 
-    public function removeUsersFormulaire(FormulaireDeRenseignement $usersFormulaire): static
+    public function removeUserFormulaire(FormulaireDeRenseignement $userFormulaire): static
     {
-        if ($this->UsersFormulaire->removeElement($usersFormulaire)) {
+        if ($this->UserFormulaire->removeElement($userFormulaire)) {
             // set the owning side to null (unless already changed)
-            if ($usersFormulaire->getUserFormulaire() === $this) {
-                $usersFormulaire->setUsersFormulaire(null);
+            if ($userFormulaire->getUserFormulaire() === $this) {
+                $userFormulaire->setUserFormulaire(null);
             }
         }
 
@@ -252,27 +252,27 @@ class Users implements UsersInterface, PasswordAuthenticatedUsersInterface
     /**
      * @return Collection<int, Roles>
      */
-    public function getUsersRoles(): Collection
+    public function getUserRoles(): Collection
     {
-        return $this->usersRoles;
+        return $this->userRoles;
     }
 
-    public function addUsersRole(Roles $usersRole): static
+    public function addUserRole(Roles $userRole): static
     {
-        if (!$this->usersRoles->contains($usersRole)) {
-            $this->usersRoles->add($usersRole);
-            $usersRole->setUsersRoles($this);
+        if (!$this->userRoles->contains($userRole)) {
+            $this->userRoles->add($userRole);
+            $userRole->setUserRoles($this);
         }
 
         return $this;
     }
 
-    public function removeUsersRole(Roles $usersRole): static
+    public function removeUserRole(Roles $userRole): static
     {
-        if ($this->usersRoles->removeElement($usersRole)) {
+        if ($this->userRoles->removeElement($userRole)) {
             // set the owning side to null (unless already changed)
-            if ($usersRole->getUsersRoles() === $this) {
-                $usersRole->setUsersRoles(null);
+            if ($userRole->getUserRoles() === $this) {
+                $userRole->setUserRoles(null);
             }
         }
 
@@ -282,27 +282,27 @@ class Users implements UsersInterface, PasswordAuthenticatedUsersInterface
     /**
      * @return Collection<int, Horaires>
      */
-    public function getUsersHoraires(): Collection
+    public function getUserHoraires(): Collection
     {
-        return $this->usersHoraires;
+        return $this->userHoraires;
     }
 
-    public function addUsersHoraire(Horaires $usersHoraire): static
+    public function addUserHoraire(Horaires $userHoraire): static
     {
-        if (!$this->usersHoraires->contains($usersHoraire)) {
-            $this->usersHoraires->add($usersHoraire);
-            $usersHoraire->setUsersHoraires($this);
+        if (!$this->userHoraires->contains($userHoraire)) {
+            $this->userHoraires->add($userHoraire);
+            $userHoraire->setUserHoraires($this);
         }
 
         return $this;
     }
 
-    public function removeUsersHoraire(Horaires $usersHoraire): static
+    public function removeUserHoraire(Horaires $userHoraire): static
     {
-        if ($this->usersHoraires->removeElement($usersHoraire)) {
+        if ($this->userHoraires->removeElement($userHoraire)) {
             // set the owning side to null (unless already changed)
-            if ($usersHoraire->getUsersHoraires() === $this) {
-                $usersHoraire->setUsersHoraires(null);
+            if ($userHoraire->getUserHoraires() === $this) {
+                $userHoraire->setUserHoraires(null);
             }
         }
 
@@ -312,27 +312,27 @@ class Users implements UsersInterface, PasswordAuthenticatedUsersInterface
     /**
      * @return Collection<int, Annonces>
      */
-    public function getUsersAnnonces(): Collection
+    public function getUserAnnonces(): Collection
     {
-        return $this->usersAnnonces;
+        return $this->userAnnonces;
     }
 
-    public function addUsersAnnonce(Annonces $usersAnnonce): static
+    public function addUsersAnnonce(Annonces $userAnnonce): static
     {
-        if (!$this->usersAnnonces->contains($usersAnnonce)) {
-            $this->usersAnnonces->add($usersAnnonce);
-            $usersAnnonce->setUsersAnnonces($this);
+        if (!$this->userAnnonces->contains($userAnnonce)) {
+            $this->userAnnonces->add($userAnnonce);
+            $userAnnonce->setUserAnnonces($this);
         }
 
         return $this;
     }
 
-    public function removeUserAnnonce(Annonces $usersAnnonce): static
+    public function removeUserAnnonce(Annonces $userAnnonce): static
     {
         if ($this->usersAnnonces->removeElement($usersAnnonce)) {
             // set the owning side to null (unless already changed)
-            if ($usersAnnonce->getUsersAnnonces() === $this) {
-                $usersAnnonce->setUsersAnnonces(null);
+            if ($userAnnonce->getUserAnnonces() === $this) {
+                $userAnnonce->setUserAnnonces(null);
             }
         }
 

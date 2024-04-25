@@ -19,8 +19,8 @@ class Services
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\ManyToOne(inversedBy: 'usersServices')]
-    private ?Users $usersServices = null;
+    #[ORM\ManyToOne(inversedBy: 'userServices')]
+    private ?User $userServices = null;
 
     public function getId(): ?int
     {
@@ -51,14 +51,14 @@ class Services
         return $this;
     }
 
-    public function getUsersServices(): ?Users
+    public function getUserServices(): ?User
     {
-        return $this->usersServices;
+        return $this->userServices;
     }
 
-    public function setUserServices(?Users $usersServices): static
+    public function setUserServices(?User $userServices): static
     {
-        $this->usersServices = $usersServices;
+        $this->userServices = $userServices;
 
         return $this;
     }

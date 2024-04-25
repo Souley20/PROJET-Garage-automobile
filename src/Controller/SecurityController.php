@@ -9,17 +9,16 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
-    #[Route(path: '/connexion', name: 'app_login')]
-
+    #[Route(path: '/connexion', name: 'app_login', methods: ['GET'], schemes:[HTTP])]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        // if ($this->getUsers()) {
+        // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
         // }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the users
+        // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render('security/connexion.html.twig', [

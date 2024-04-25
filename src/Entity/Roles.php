@@ -16,9 +16,9 @@ class Roles
     #[ORM\Column(length: 50)]
     private ?string $nom = null;
 
-    #[ORM\ManyToOne(inversedBy: 'usersRoles')]
+    #[ORM\ManyToOne(inversedBy: 'userRoles')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Users $usersRoles = null;
+    private ?User $userRoles = null;
 
     public function getId(): ?int
     {
@@ -37,14 +37,14 @@ class Roles
         return $this;
     }
 
-    public function getUsersRoles(): ?Users
+    public function getUsersRoles(): ?User
     {
-        return $this->usersRoles;
+        return $this->userRoles;
     }
 
-    public function setUsersRoles(?Users $usersRoles): static
+    public function setUserRoles(?Users $userRoles): static
     {
-        $this->usersRoles = $usersRoles;
+        $this->userRoles = $userRoles;
 
         return $this;
     }
