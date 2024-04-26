@@ -338,4 +338,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    /**
+     * Returns the identifier for this user (e.g. username or email address).
+     * @return string
+     */
+    public function getUserIdentifier(): string {
+    }
 }

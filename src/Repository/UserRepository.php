@@ -2,46 +2,45 @@
 
 namespace App\Repository;
 
-use App\Entity\Users;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpKernel\Tests\Controller\ArgumentResolver\User;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\Users\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\Users\PasswordUpgraderInterface;
 
 /**
- * @extends ServiceEntityRepository<Users>
+ * @extends ServiceEntityRepository<User>
  *
- * @implements PasswordUpgraderInterface<Users>
+ * @implements \Symfony\Component\Security\Core\User\PasswordUpgraderInterface<User>
  *
  * @method Users|null find($id, $lockMode = null, $lockVersion = null)
  * @method Users|null findOneBy(array $criteria, array $orderBy = null)
  * @method Users[]    findAll()
  * @method Users[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UsersRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
+class UsersRepository extends ServiceEntityRepository implements \Symfony\Component\Security\Core\User\PasswordUpgraderInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Users::class);
+        parent::__construct($registry, \App\Entity\User::class);
     }
 
     /**
-     * Used to upgrade (rehash) the users's password automatically over time.
+     * Used to upgrade (rehash) the user's password automatically over time.
      */
-    public function upgradePassword(PasswordAuthenticatedUsersInterface $users, string $newHashedPassword): void
+    public function upgradePassword(PasswordAuthenticatedUsersInterface $user, string $newHashedPassword): void
     {
-        if (!$users instanceof Users) {
+        if (!$user instanceof User) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', $user::class));
         }
 
-        $users->setPassword($newHashedPassword);
-        $this->getEntityManager()->persist($users);
+        $user->setPassword($newHashedPassword);
+        $this->getEntityManager()->persist($user);
         $this->getEntityManager()->flush();
     }
 
 //    /**
-//     * @return Users[] Returns an array of Users objects
+//     * @return User[] Returns an array of User objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -55,7 +54,7 @@ class UsersRepository extends ServiceEntityRepository implements PasswordUpgrade
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Users
+//    public function findOneBySomeField($value): ?User
 //    {
 //        return $this->createQueryBuilder('u')
 //            ->andWhere('u.exampleField = :val')
