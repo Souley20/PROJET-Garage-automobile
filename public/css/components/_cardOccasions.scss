@@ -1,0 +1,83 @@
+#containerVoituresOccasions {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .cardOccasions {
+    width: 80%;
+    height: 18rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    @include lg-max {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+    }
+
+    img {
+      width: 40%;
+      height: 100%;
+      object-fit: cover;
+
+      @include lg-max {
+        width: 80%;
+      }
+
+      @include md-max {
+        width: 100%;
+      }
+    }
+    .description {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 58%;
+      background-color: var(--color-sand);
+      padding: 2rem 2rem 4rem 2rem;
+      font-family: var(--font-audiowide);
+      color: var(--color-white);
+
+      @include lg-max {
+        width: 80%;
+      }
+
+      @include md-max {
+        width: 100%;
+      }
+
+      .titleDescription {
+        font-size: 1.2rem;
+      }
+
+      .price {
+        color: inherit;
+      }
+
+      .filter {
+        display: flex;
+        justify-content: space-between;
+        color: var(--color-white);
+        div {
+          color: inherit;
+
+          @include lg-max {
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      span {
+        padding: 0.3rem;
+        text-align: center;
+        width: 6.5rem;
+        background-color: var(--color-orange);
+        border-radius: 2rem;
+        font-size: 0.8rem;
+        color: inherit;
+        margin-top: 2rem;
+      }
+    }
+  }
+}

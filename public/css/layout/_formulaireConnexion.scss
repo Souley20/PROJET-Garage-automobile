@@ -1,0 +1,124 @@
+.container {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .row {
+    .col {
+      form {
+        height: 34rem;
+        width: 30rem;
+        padding: 1rem 4rem 1rem 4rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: var(--color-sand);
+        color: var(--color-white);
+        font-size: 0.8rem;
+
+        h1 {
+          text-align: center;
+          font-size: 1.5rem;
+          margin-top: 3rem;
+        }
+
+        input {
+          background-color: var(--color-sand);
+          border: none;
+          border-radius: 0;
+          border-bottom: solid 1px var(--color-white);
+          color: var(--color-white);
+          padding: 0 2rem 0.5rem 0;
+
+          &::placeholder {
+            color: var(--color-white);
+          }
+
+          &:focus {
+            box-shadow: none;
+          }
+        }
+
+        .input-wrapper {
+          position: relative;
+          display: inline-block;
+          width: 100%;
+
+          .icon {
+            position: absolute;
+            right: 10px;
+            top: 83%;
+            transform: translateY(-50%);
+          }
+
+          .icon-two {
+            position: absolute;
+            right: 10px;
+            top: 48%;
+            transform: translateY(-50%);
+          }
+        }
+
+        #inputEmail {
+          margin-top: 4rem;
+        }
+
+        #inputPassword {
+          margin: 3rem 0 3rem 0;
+        }
+
+        button {
+          background-color: var(--background-color-brown);
+          color: var(--color-brown-clear);
+          border-radius: 0;
+          width: 100%;
+        }
+
+        .remember-lost {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 3rem;
+
+          span {
+            display: flex;
+            align-items: center;
+            width: 50%;
+
+            p {
+              color: var(--color-white);
+            }
+          }
+
+          span:first-child {
+            justify-content: start;
+
+            input {
+              margin-right: 1rem;
+            }
+          }
+
+          span:nth-child(2) {
+            justify-content: end;
+          }
+
+          .psd-lost {
+            text-decoration: underline;
+          }
+        }
+
+        .no-account {
+          color: var(--color-white);
+          margin-top: 3rem;
+
+          a {
+            text-decoration: underline;
+            color: var(--color-orange);
+          }
+        }
+      }
+    }
+  }
+}

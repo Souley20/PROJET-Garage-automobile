@@ -1,0 +1,121 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-sand);
+  font-family: var(--font-audiowide);
+
+  a {
+    font-family: var(--font-audiowide);
+    color: var(--color-white);
+    font-size: 0.9rem;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-orange);
+    }
+
+    @include navbar {
+      text-align: center;
+    }
+  }
+
+  .contain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 0.3rem);
+    margin: 0 2.5rem 0 3rem;
+
+    @include navbar {
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 0 1.5rem 0 1.5rem;
+    }
+
+    .navbar-brand {
+      display: block;
+      height: 100%;
+      width: 12rem;
+
+      @include navbar {
+        display: flex;
+        justify-content: start;
+        flex-wrap: nowrap;
+        width: 90%;
+      }
+
+      @include md-max {
+        width: 80%;
+      }
+
+      @include sm-max {
+        width: 70%;
+      }
+
+      img {
+        height: 1.8rem;
+        width: 10rem;
+      }
+    }
+
+    .navbar-collapse {
+      flex-grow: 0;
+      width: calc(100%);
+
+      @include navbar {
+      }
+
+      .excvtend {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0 5rem 0 5rem;
+
+        @include navbar {
+          margin: 0;
+        }
+
+        .navbar-nav {
+          display: flex;
+          justify-content: space-around;
+          width: 78%;
+
+          li {
+            a {
+              font-size: 0.7rem;
+            }
+          }
+        }
+      }
+
+      .seConnecter {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        width: calc(100% / 3.7);
+
+        @include navbar {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+
+        svg {
+          height: 0.8rem;
+          width: 0.8rem;
+          margin-right: 0.7rem;
+        }
+
+        .button {
+          width: auto;
+          background: none;
+          border: none;
+
+          a {
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}

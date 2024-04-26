@@ -1,0 +1,133 @@
+.contact {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-sand);
+  font-family: var(--font-audiowide);
+  padding: 4rem;
+
+  @include lg-max {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include md-max {
+    padding: 2rem;
+  }
+
+  .letsDoThis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 47%;
+    color: var(--color-white);
+    padding-bottom: 15rem;
+
+    @include lg-max {
+      width: 100%;
+      height: 25rem;
+      padding-bottom: 4rem;
+    }
+
+    h2 {
+      font-size: 5rem;
+      font-family: var(--font-bethellen);
+
+      @include xl-max {
+        font-size: 3.5rem;
+      }
+
+      @include md-max {
+        font-size: 2.5rem;
+      }
+
+      @include sm-max {
+        font-size: 2rem;
+      }
+
+      .point {
+        color: var(--color-orange);
+      }
+    }
+
+    .largeParagraph {
+      color: inherit;
+
+      @include md-max {
+        font-size: 0.8rem;
+      }
+
+      @include sm-max {
+        font-size: 0.7rem;
+      }
+    }
+
+    .splitParagraph {
+      display: flex;
+
+      .paragraph {
+        color: var(--color-white);
+
+        h6 {
+          color: var(--color-beige);
+        }
+        p {
+          font-size: 0.8rem;
+          color: inherit;
+
+          @include sm-max {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+
+  a {
+    color: var(--color-beige);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 47%;
+
+    @include lg-max {
+      width: 100%;
+      height: 50rem;
+    }
+
+    .formGroup {
+      width: 100%;
+      input {
+        padding-left: 2rem;
+        height: 5rem;
+        border-radius: 4rem;
+        border: 1px solid #fff;
+        background-color: var(--color-sand);
+        color: var(--color-beige);
+        margin-bottom: 1rem;
+      }
+
+      textarea {
+        padding: 1.8rem 0 0 2rem;
+        height: 15rem;
+        border-radius: 4rem;
+        border: 1px solid #fff;
+        background-color: var(--color-sand);
+        margin-bottom: 1rem;
+      }
+
+      input::placeholder {
+        color: var(--color-beige);
+      }
+      textarea::placeholder {
+        color: var(--color-beige);
+      }
+    }
+
+    @import "../components/buttons";
+  }
+}

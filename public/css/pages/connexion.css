@@ -1,0 +1,104 @@
+.container {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .row .col form {
+  height: 34rem;
+  width: 30rem;
+  padding: 1rem 4rem 1rem 4rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--color-sand);
+  color: var(--color-white);
+  font-size: 0.8rem;
+}
+.container .row .col form h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+}
+.container .row .col form input {
+  background-color: var(--color-sand);
+  border: none;
+  border-radius: 0;
+  border-bottom: solid 1px var(--color-white);
+  color: var(--color-white);
+  padding: 0 2rem 0.5rem 0;
+}
+.container .row .col form input::-moz-placeholder {
+  color: var(--color-white);
+}
+.container .row .col form input::placeholder {
+  color: var(--color-white);
+}
+.container .row .col form input:focus {
+  box-shadow: none;
+}
+.container .row .col form .input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.container .row .col form .input-wrapper .icon {
+  position: absolute;
+  right: 10px;
+  top: 83%;
+  transform: translateY(-50%);
+}
+.container .row .col form .input-wrapper .icon-two {
+  position: absolute;
+  right: 10px;
+  top: 48%;
+  transform: translateY(-50%);
+}
+.container .row .col form #inputEmail {
+  margin-top: 4rem;
+}
+.container .row .col form #inputPassword {
+  margin: 3rem 0 3rem 0;
+}
+.container .row .col form button {
+  background-color: var(--background-color-brown);
+  color: var(--color-brown-clear);
+  border-radius: 0;
+  width: 100%;
+}
+.container .row .col form .remember-lost {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.container .row .col form .remember-lost span {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+.container .row .col form .remember-lost span p {
+  color: var(--color-white);
+}
+.container .row .col form .remember-lost span:first-child {
+  justify-content: start;
+}
+.container .row .col form .remember-lost span:first-child input {
+  margin-right: 1rem;
+}
+.container .row .col form .remember-lost span:nth-child(2) {
+  justify-content: end;
+}
+.container .row .col form .remember-lost .psd-lost {
+  text-decoration: underline;
+}
+.container .row .col form .no-account {
+  color: var(--color-white);
+  margin-top: 3rem;
+}
+.container .row .col form .no-account a {
+  text-decoration: underline;
+  color: var(--color-orange);
+}/*# sourceMappingURL=connexion.css.map */

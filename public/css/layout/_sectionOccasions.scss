@@ -1,0 +1,112 @@
+.voitureOccasions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .headOccasions {
+    margin: 5rem 0 3rem 0;
+    .titleOccasions {
+      text-align: center;
+      font-family: var(--font-bethellen);
+      margin-bottom: 3rem;
+      font-size: 1.8rem;
+      span {
+        color: var(--color-orange);
+      }
+    }
+    p {
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 0 3.5rem 0 3.5rem;
+    }
+  }
+
+  #selectFilter {
+    font-family: var(--font-bethellen);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 0 4rem 0;
+
+    @include lg-max {
+      flex-direction: column;
+    }
+
+    .firstFilterWrapper {
+      display: flex;
+      justify-content: space-around;
+      width: 80%;
+
+      @include md-max {
+        flex-direction: column;
+      }
+
+      .filter:nth-child(2) {
+        @include md-max {
+          margin: 0;
+        }
+      }
+
+      .filter {
+        @include md-max {
+          margin-bottom: 2rem;
+        }
+
+        h4 {
+          margin-bottom: 1.5rem;
+          font-size: 1rem;
+        }
+
+        select {
+          font-family: var(--font-audiowide);
+          font-size: 0.7rem;
+          background-color: var(--color-sand);
+          padding: 0.5rem;
+          border: none;
+          color: var(--color-white);
+
+          @include md-max {
+          }
+        }
+      }
+    }
+
+    .secondFilterWrapper {
+      display: flex;
+      justify-content: space-around;
+      width: 80%;
+
+      @include lg-max {
+        margin-top: 2rem;
+      }
+
+      @include md-max {
+        margin-top: 2rem;
+        flex-direction: column;
+      }
+
+      .filter {
+        @include md-max {
+          margin-bottom: 2rem;
+        }
+
+        h4 {
+          margin-bottom: 1.5rem;
+          font-size: 1rem;
+        }
+
+        select {
+          font-family: var(--font-audiowide);
+          font-size: 0.7rem;
+          background-color: var(--color-sand);
+          padding: 0.5rem;
+          border: none;
+          color: var(--color-white);
+        }
+      }
+    }
+  }
+
+  @import "../components/cardOccasions";
+}

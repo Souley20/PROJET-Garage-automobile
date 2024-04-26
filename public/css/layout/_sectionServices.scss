@@ -1,0 +1,339 @@
+.services {
+  .headServices {
+    margin: 6rem 0 6rem 0;
+    .titleServices {
+      text-align: center;
+      font-family: var(--font-bethellen);
+      margin-bottom: 3rem;
+      span {
+        color: var(--color-orange);
+      }
+    }
+    p {
+      text-align: center;
+    }
+  }
+
+  .wrapperServicesTop {
+    display: flex;
+    column-gap: 2rem;
+    height: 28rem;
+    margin: 0 2rem 2rem 2rem;
+    font-family: var(--font-audiowide);
+
+    @include lg-max {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+    }
+
+    .largeServices {
+      display: flex;
+      height: 100%;
+      width: calc(100% / 2);
+      column-gap: 1rem;
+      background-color: var(--color-sand);
+
+      @include lg-max {
+        margin-bottom: 2rem;
+        width: auto;
+      }
+
+      .soupape {
+        object-fit: cover;
+        height: 100%;
+        width: calc(100% / 2);
+
+        @include lg-max {
+          height: auto;
+        }
+      }
+
+      .servicesOne {
+        padding-top: 2rem;
+
+        h4 {
+          color: var(--color-orange);
+          margin-bottom: 1rem;
+          font-size: 1.2rem;
+
+          @include lg-max {
+            font-size: 1rem;
+          }
+        }
+
+        .information {
+          p {
+            color: var(--color-white);
+            font-size: 0.8rem;
+
+            .point {
+              color: var(--color-orange);
+            }
+          }
+        }
+      }
+    }
+
+    .splitServices {
+      display: flex;
+      column-gap: 2rem;
+      height: 100%;
+      width: calc(100% / 2);
+
+      @include lg-max {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .servicesTwo {
+        width: calc(100% / 2);
+        background-color: var(--color-sand);
+
+        @include lg-max {
+          width: 100%;
+          margin-bottom: 2rem;
+        }
+
+        .huile {
+          width: 100%;
+        }
+        .information {
+          padding: 2rem 0 0 2rem;
+
+          @include md-max {
+            padding: 2rem 1rem 0 1rem;
+          }
+
+          h4 {
+            color: var(--color-orange);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+
+            @include lg-max {
+              font-size: 1rem;
+            }
+          }
+
+          .paragraph {
+            padding-bottom: 2rem;
+            p {
+              color: var(--color-white);
+              font-size: 0.8rem;
+
+              .point {
+                color: var(--color-orange);
+              }
+            }
+          }
+        }
+      }
+
+      .servicesThree {
+        width: calc(100% / 2);
+        background-color: var(--color-sand);
+
+        @include lg-max {
+          width: 100%;
+        }
+
+        .plaquette {
+          width: 100%;
+        }
+        .information {
+          padding: 2rem 0 0 2rem;
+
+          @include md-max {
+            padding: 2rem 1rem 0 1rem;
+          }
+
+          h4 {
+            color: var(--color-orange);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+
+            @include lg-max {
+              font-size: 1rem;
+            }
+          }
+
+          .paragraph {
+            p {
+              color: var(--color-white);
+              font-size: 0.8rem;
+
+              .point {
+                color: var(--color-orange);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .wrapperServicesBottom {
+    display: flex;
+    column-gap: 2rem;
+    margin: 0 2rem 0 2rem;
+    height: 28rem;
+    font-family: var(--font-audiowide);
+
+    @include lg-max {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+    }
+
+    .splitServicesTwo {
+      display: flex;
+      column-gap: 2rem;
+      height: 100%;
+      width: calc(100% / 2);
+
+      @include lg-max {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .servicesFour {
+        width: calc(100% / 2);
+        background-color: var(--color-sand);
+
+        @include lg-max {
+          width: 100%;
+          margin-bottom: 2rem;
+        }
+
+        .courroie {
+          width: 100%;
+        }
+        .information {
+          padding: 2rem 0 0 2rem;
+
+          @include md-max {
+            padding: 2rem 1rem 0 1rem;
+          }
+
+          h4 {
+            color: var(--color-orange);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+
+            @include lg-max {
+              font-size: 1rem;
+            }
+
+            @include md-max {
+              font-size: 0.8rem;
+            }
+          }
+
+          .paragraph {
+            p {
+              color: var(--color-white);
+              font-size: 0.8rem;
+
+              .point {
+                color: var(--color-orange);
+              }
+            }
+          }
+        }
+      }
+      .servicesFive {
+        width: calc(100% / 2);
+        background-color: var(--color-sand);
+
+        @include lg-max {
+          width: 100%;
+          margin-bottom: 2rem;
+        }
+
+        .suspension {
+          width: 100%;
+        }
+        .information {
+          padding: 2rem 0 0 2rem;
+
+          @include md-max {
+            padding: 2rem 1rem 0 1rem;
+          }
+
+          h4 {
+            color: var(--color-orange);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+
+            @include lg-max {
+              font-size: 1rem;
+            }
+
+            @include md-max {
+              font-size: 0.8rem;
+            }
+          }
+
+          .paragraph {
+            p {
+              color: var(--color-white);
+              font-size: 0.8rem;
+
+              .point {
+                color: var(--color-orange);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .largeServicesTwo {
+      display: flex;
+      height: 100%;
+      width: calc(100% / 2);
+      column-gap: 1rem;
+      background-color: var(--color-sand);
+
+      @include lg-max {
+        width: auto;
+      }
+
+      .batterie {
+        object-fit: cover;
+        height: 100%;
+        width: calc(100% / 2);
+
+        @include lg-max {
+          height: auto;
+        }
+      }
+      .servicesSix {
+        padding-top: 2rem;
+
+        h4 {
+          color: var(--color-orange);
+          margin-bottom: 1rem;
+          font-size: 1rem;
+
+          @include lg-max {
+            font-size: 1rem;
+          }
+        }
+
+        .information {
+          p {
+            color: var(--color-white);
+            font-size: 0.8rem;
+
+            .point {
+              color: var(--color-orange);
+            }
+          }
+        }
+      }
+    }
+  }
+}
