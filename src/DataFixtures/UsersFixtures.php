@@ -20,8 +20,8 @@ class UsersFixtures extends Fixture
     {
         $admin = new User();
         $admin->setNom('Parrot');
-        $admin->setPrenom('Vincent');
-        $admin->setEmail('parrot.vincent@gmail.com');
+        $admin->setPrenom('John');
+        $admin->setEmail('parrot.john@gmail.com');
         $admin->setRoles(['ROLE_ADMINISTRATEUR']);
         $admin->setPassword(
             $this->passwordHasher->hashPassword($admin, 'admin')

@@ -78,7 +78,7 @@ class FormulaireDeRenseignement
     private ?string $valide = null;
 
     #[ORM\ManyToOne(inversedBy: 'UsersFormulaire')]
-    private ?Users $UsersFormulaire = null;
+    private ?User $UserFormulaire = null;
 
     public function getId(): ?int
     {
@@ -169,14 +169,14 @@ class FormulaireDeRenseignement
         return $this;
     }
 
-    public function getUsersFormulaire(): ?Users
+    public function getUsersFormulaire(): ?User
     {
-        return $this->UsersFormulaire;
+        return $this->UserFormulaire;
     }
 
-    public function setUsersFormulaire(?Users $UsersFormulaire): static
+    public function setUsersFormulaire(?User $UsersFormulaire): static
     {
-        $this->UsersFormulaire = $UsersFormulaire;
+        $this->UserFormulaire = $UsersFormulaire;
 
         return $this;
     }
